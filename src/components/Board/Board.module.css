@@ -1,0 +1,31 @@
+.status {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: colorChange 2s infinite;
+}
+
+.board-row {
+  display: flex;
+  justify-content: center;
+}
+
+/* hover nos quadrados */
+.board-row .square:hover {
+  transform: scale(1.1);
+  background-color: #dcdcdc;
+}
+
+/* gracinha que pedi pro chat me ensinar a fazer*/
+@keyframes colorChange {
+  0% {
+    color: #00ff22; /* Tomato */
+  }
+  50% {
+    color: #3700ff; /* MediumSeaGreen */
+  }
+  100% {
+    color: #ff0000; /* DodgerBlue */
+  }
+}
