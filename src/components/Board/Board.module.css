@@ -18,14 +18,14 @@
 }
 
 /* gracinha que pedi pro chat me ensinar a fazer*/
-@keyframes colorChange {
+/* @keyframes colorChange {
   0% {
-    color: #00ff22; /* Tomato */
+    color: #00ff22; 
   }
   50% {
-    color: #3700ff; /* MediumSeaGreen */
+    color: #3700ff; 
   }
   100% {
-    color: #ff0000; /* DodgerBlue */
+    color: #ff0000;
   }
-}
+} */
