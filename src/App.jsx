@@ -1,15 +1,16 @@
-import { useState } from 'react'
 import './App.css'
 import Game from './components/Game'
 
+// componente principal 
 function App() {
-  const [count, setCount] = useState(0)
-
+  // retorna o componente 
   return (
     <>
-    <Game/>
+      <Game />
     </>
   )
 }
 
+// exporta o componente
 export default App
+

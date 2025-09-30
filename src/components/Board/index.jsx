@@ -1,48 +1,56 @@
 import calculateWinner from '../../utils/calculateWinner'
-import Square from '../Square';
+import Square from '../Square'
 import styles from './Board.module.css'
 
-export  default function Board({ xIsNext, squares, onPlay }) {
-    function handleClick(i) {
-      if (calculateWinner(squares) || squares[i]) {
-        return;
-      }
-      const nextSquares = squares.slice();
-      if (xIsNext) {
-        nextSquares[i] = 'X';
-      } else {
-        nextSquares[i] = 'O';
-      }
-      onPlay(nextSquares);
+// componente board responsável por renderizar 
+export default function Board({ xIsNext, squares, onPlay }) {
+  // função que lida com o clique 
+  function handleClick(i) {
+    // impede jogada caso já exista vencedor ou se já possui caracter
+    if (calculateWinner(squares) || squares[i]) {
+      return
     }
-  
-    const winner = calculateWinner(squares);
-    let status;
-    if (winner) {
-      status = 'Winner: ' + winner;
-    } else {
-      status = 'Next player: ' + (xIsNext ? 'X' : 'O');
-    }
-  
-    return (
-      <>
-        <div className={styles.status}>{status}</div>
-        <div className="board-row">
-          <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
-          <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
-          <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
-        </div>
-        <div className="board-row">
-          <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
-          <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
-          <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
-        </div>
-        <div className="board-row">
-          <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
-          <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
-          <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
-        </div>
-      </>
-    );
+
+    // cria uma cópia do estado atual 
+    const nextSquares = squares.slice()
+    // define se a jogada é x ou o 
+    nextSquares[i] = xIsNext ? 'X' : 'O'
+    // atualiza o estado 
+    onPlay(nextSquares)
   }
-  
+
+  // verifica se já existe vencedor
+  const winner = calculateWinner(squares)
+  // define o status do jogo
+  let status
+  if (winner) {
+    status = 'winner: ' + winner
+  } else {
+    status = 'next player: ' + (xIsNext ? 'x' : 'o')
+  }
+
+  // retorna o tabuleiro 
+  return (
+    <>
+
+      <div className={styles.status}>{status}</div>
+      <div className="board-row">
+        <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
+        <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
+        <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
+      </div>
+
+      <div className="board-row">
+        <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
+        <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
+        <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
+      </div>
+
+      <div className="board-row">
+        <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
+        <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
+        <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
+      </div>
+    </>
+  )
+}

@@ -1,8 +1,9 @@
-import styles from './Square.module.css'
 export default function Square({ value, onSquareClick }) {
-    return (
-      <button className="square" onClick={onSquareClick}>
-        {value}
-      </button>
-    );
+// retorna um botão 
+// o botão recebe o valor atuale chama a função ao ser clicado
+  return (
+    <button className="square" onClick={onSquareClick}>
+      {value}
+    </button>
+  );
 }

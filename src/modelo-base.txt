@@ -1,5 +1,0 @@
-a fazer:
-estilizar as cores;
-comentar a estruturalização;
-separar o tabuleiro do histórico (direita esquerda);
-
