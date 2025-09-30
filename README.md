@@ -1,16 +1,46 @@
-# React + Vite
+# Jogo da Velha em React #
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ 🎯 Objetivo do projeto
 
-Currently, two official plugins are available:
+Este projeto consiste em uma implementação do clássico Jogo da Velha usando **React** com Vite.
+Dois jogadores alternam suas jogadas (X e O) até que um vença ou haja empate (velha).
+O propósito é demonstrar estrutura de componentes React, comunicação entre eles e estado compartilhado.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+🧩 Estrutura de Componentes
+src/
+│
+├── components/
+│ ├── Board.jsx # Componente do tabuleiro (grade de células)
+│ ├── Cell.jsx # Componente de cada célula individual
+│ ├── Game.jsx # Componente principal que gerencia estado do jogo
+│ └── Status.jsx # Exibe status: jogador da vez / vencedor / empate
+│
+├── hooks/
+│
+├── styles/
+│ └── ... (arquivos de CSS / styled components / etc)
+│
+└── main.jsx # Ponto de entrada do React + renderização
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+A estrutura do projeto segue uma organização simples, com componentes para cada parte lógica do jogo.
+| Componente                  | Responsabilidade                                                                                                           |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `Game.jsx`                  | Controla o estado central do jogo: quem é o jogador atual, histórico de jogadas, verificar vitória/empate, reiniciar jogo. |
+| `Board.jsx`                 | Renderiza a grade de células (3×3), delegando cada célula para `Cell.jsx`.                                                 |
+| `Cell.jsx`                  | Representa uma única célula; recebe valor (X, O ou vazio) e evento de clique para registrar jogada.                        |
+| `Status.jsx`                | Exibe mensagem dinâmica: “Jogador X”, “Jogador O venceu!”, “Empate!”, ou instruções de reinício.                           |
+| `useGameLogic` (se existir) | Contém funções auxiliares para avaliar vitória/empate com base no estado atual do tabuleiro.                               |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+▶️ Como executar o jogo
+
+Siga os passos abaixo para rodar localmente:
+1. **Clone o repositório**
+2. **Instale as dependências**
+3. **Execute em modo de desenvolvimento**
+4. **Compilar para produção (opcional)**
+
+Para gerar uma versão otimizada para deploy:
