@@ -1,15 +1,18 @@
 .game {
   display: flex;
-  justify-content: center; 
-  align-items: center;   
-  gap: 3rem;             
-  min-height: 100vh;
-  background: linear-gradient(to bottom, #1a1a2e, #162447); /* tons de azul*/
+  justify-content: center;  
+  align-items: center;      
+  gap: 3rem;
+  width: 100vw;              
+  height: 100vh;             
+  background: linear-gradient(to bottom, #1a1a2e, #162447); /* fundo azul */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #ffffff;
   padding: 2rem;
   box-sizing: border-box;
+  margin: 0;                
 }
+
 
 .game-board {
   background-color: #0f3460; /* tons de azul*/

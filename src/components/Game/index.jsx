@@ -1,5 +1,7 @@
-import { useState } from 'react';
-import Board from '../Board';
+import { useState }  from "react";
+import styles from "./Game.module.css";
+import Board from "../Board";
+
 export default function Game() {
   // estado que guarda o histórico das jogadas
   const [history, setHistory] = useState([Array(9).fill(null)]);
@@ -46,11 +48,11 @@ export default function Game() {
 
   // renderiza o layout 
   return (
-    <div className="game">
-      <div className="game-board">
+    <div className={styles.game}>
+      <div className={styles["game-board"]}>
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
-      <div className="game-info">
+      <div className={styles["game-info"]}>
         <ol>{moves}</ol>
       </div>
     </div>
